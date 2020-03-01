@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /articles/{document} {
+      allow read;
+      allow update: if request.resource.data.original == resource.data.original
+				&& request.resource.data.url == resource.data.url
+				&& request.resource.data.words == resource.data.words
+      	&& request.resource.data.annotatorCount > resource.data.annotatorCount;
+    }
+    match /users/{document} {
+      allow read, create;
+      allow update: if request.resource.data.wordCount > resource.data.wordCount
+      	&& request.resource.data.docCount > resource.data.docCount;
+    }
+    match /meta/{document} {
+      allow read;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+export const firebaseConfig = {
+	apiKey: "AI--------J0",
+	authDomain: "tagger.firebaseapp.com",
+	databaseURL: "https://tagger.firebaseio.com",
+	projectId: "tagger",
+	storageBucket: "tagger.appspot.com",
+	messagingSenderId: "00000000000",
+	appId: "1:00000000000:web:000000000000000000000"
+};
